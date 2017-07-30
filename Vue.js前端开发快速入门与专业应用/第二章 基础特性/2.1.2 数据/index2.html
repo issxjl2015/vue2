@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2.1.2 数据</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{a}}</p>
+        <p>{{b}}</p>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+
+    <script>
+        var data = { a: 1};
+
+        var vm = new Vue({
+            el: '#app',
+            data: data
+        });
+
+        vm.$data.b = 2;// vue.js:485 [Vue warn]: Property or method "b" is not defined on the instance but referenced during render. Make sure to declare reactive data properties in the data option.
+
+    </script>
+</body>
+</html>

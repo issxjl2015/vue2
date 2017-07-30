@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js 组件化/title>
+</head>
+<body>
+    <div id="app">
+        <message content="Hello world"></message>
+    </div>
+
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        var Message = Vue.extend({
+            props: ['content'],
+            template: '<h1>{{content}}</h1>'
+        });
+
+        Vue.component('message',Message);
+        var vm = new Vue({
+            el: '#app',
+        });
+    </script>
+</body>
+</html>

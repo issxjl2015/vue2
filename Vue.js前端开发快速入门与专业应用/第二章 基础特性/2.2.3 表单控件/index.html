@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2.2.3 表单控件</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>2.2.3 表单控件</h1>
+        <h2>1.Text</h2>
+        <div>
+            <input type="text" v-model="message">
+            <span>Your input is: {{message}}</span>
+        </div>
+        <h2>2.Radio</h2>
+        <div>
+            <label for=""><input type="radio" value="male" v-model="gender">男</label>
+            <label for=""><input type="radio" value="female" v-model="gender">女</label>
+            <p>{{gender}}</p>
+        </div>
+        <h2>3.Checkbox</h2>
+        <div>
+            <span>单选勾选框</span>
+            <input type="checkbox" v-model="checked">
+            <span>checked: {{checked}}</span>
+        </div>
+        <div>
+            <span>多选勾选框</span>
+            <label for=""><input type="checkbox" value="1" v-model="multiChecked">1</label>
+            <label for=""><input type="checkbox" value="2" v-model="multiChecked">2</label>
+            <label for=""><input type="checkbox" value="3" v-model="multiChecked">3</label>
+            <label for=""><input type="checkbox" value="4" v-model="multiChecked">4</label>
+            <span>multiChecked: {{multiChecked.join('|')}}</span>
+        </div>
+        <h2>4.Select</h2>
+        <div>
+            <span>单选</span>
+            <select v-model="selected">
+                <option selected>A</option>
+                <option >B</option>
+                <option >C</option>
+            </select>
+            <span>selected: {{selected}}</span>
+        </div>
+        <div style="margin-top:20px">
+            <span>多选</span>
+            <select v-model="multiSelected" multiple>
+                <option selected >A</option>
+                <option >B</option>
+                <option >C</option>
+            </select><br>
+            <span>multiSelected: {{multiSelected.join('|')}}</span>
+        </div>
+
+        <h2>5.绑定value</h2>
+        <div>
+            <p>1). Checkbox</p>
+            <input type="checkbox" v-model="checked" :true-value="a" :false-value="b">
+            <span>selected: {{selected}}</span>
+        </div>
+        <div>
+            <p>2). Radio</p>
+            <input type="radio" v-model="checked" :true-value="a" :false-value="b">
+            <span>selected: {{selected}}</span>
+        </div>
+        <div>
+            <p>3. Select Option</p>
+            <select v-model="selected">
+                <option :value="{number:123}">123</option>
+            </select>
+            <span>selected: {{selected}}</span>
+        </div>
+
+        <h2>6.参数特性</h2>
+        <div>
+            <!-- v-model.trim: 去除收尾空格 -->
+            <input type="text" v-model.trim="message">
+            <span>Your input is: [{{message}}]</span>
+        </div>
+        <div>
+            <!-- v-model.lazy: change事件中同步 -->
+            <input type="text" v-model.lazy="message">
+            <span>Your input is: [{{message}}]</span>
+        </div>
+        <div>
+            <!-- v-model.number: 输入自动转换成Number类型 -->
+            <input type="text" v-model.number="message">
+            <span>Your input is: [{{message}}] typeof [{{typeofMessage}}]</span>
+        </div>
+
+
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                message: '',
+                gender: '',
+                checked: '',
+                multiChecked: [],
+                selected: '',
+                multiSelected: [],
+                a:'',
+                b: ''
+            },
+            computed:{
+                typeofMessage: function() {
+                    return typeof this.message;
+                }
+            }
+
+        });
+    </script>
+</body>
+
+</html>
