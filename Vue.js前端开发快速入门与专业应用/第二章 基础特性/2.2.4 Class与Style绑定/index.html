@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2.2.4 Class与Style绑定</title>
+    <style>
+        .active {
+            color:#f39;
+        }
+        .unactive {
+            color:#333
+        }
+        .class-a {
+            margin-top:20px;
+        }
+        .class-b {
+            color: #f39;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>2.2.4 Class与Style绑定</h1>
+        <div class="tab" :class="{'active':active,'unactive':!active}">{{active}}</div>
+        <div :class="[classA,classB]">class-a class-b</div>
+        <div :class="[classA,isB?classB:'']">class-a class-b</div>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                active: true,
+                classA: 'class-a',
+                classB: 'class-b',
+                isB: false
+            },
+        });
+    </script>
+</body>
+
+</html>

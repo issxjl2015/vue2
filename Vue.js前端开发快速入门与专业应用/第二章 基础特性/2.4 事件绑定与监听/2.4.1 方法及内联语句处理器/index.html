@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2.4.1 方法及内联语句处理器</title>
+</head>
+
+<body>
+    
+    <div id="app">
+        <h1>2.4.1 方法及内联语句处理器</h1>
+        <button @click="say">Say</button>
+        <button @click="sayFrom('form param')">Say form param</button>
+        <button @click="showEvent">Event</button>
+        <button @click="showEvent($event)">showEvent</button>
+        <button @click="showEvent()">showEvent</button><!-- 这样写获取不到event -->
+        <!-- vue2 不支持绑定多个事件  -->
+        <!-- <div @click="sayFrom('first')" @click="sayFrom('second')">multiClick</div> -->
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello Vue.js'
+            },
+            methods:{
+                say: function() {
+                    alert(this.msg);
+                },
+                sayFrom: function(from) {
+                    alert(this.msg + ' ' + from);
+                },
+                showEvent: function(e) {
+                    console.log(e);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

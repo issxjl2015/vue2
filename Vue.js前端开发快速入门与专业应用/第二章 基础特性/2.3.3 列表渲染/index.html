@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2.3.3 列表渲染</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>2.3.3 列表渲染</h1>
+        <h2>v-for 指令</h2>
+        <ul>
+            <li v-for="item in items">
+                <h3>{{item.title}}</h3>
+                <p>{{item.description}}</p>
+            </li>
+        </ul>
+    </div>
+    <h2>index</h2> 
+    <ul id="example-2">
+        <li v-for="(item, index) in items">
+            {{ parentMessage }} - {{ index }} - {{ item.message }}
+        </li>
+    </ul>
+    <h2>index key value</h2>
+    <div id="example-3">
+        <div v-for="(value, key, index) in object">
+            {{ index }}. {{ key }} : {{ value }}
+        </div>
+
+        <h2>range</h2>
+        <ul>
+            <li v-for="n in 10">{{n}}</li>
+        </ul>
+    </div>
+
+
+    <script src="node_modules/vue/dist/vue.js"></script>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                items: [
+                    { title: 'title-1', description: 'description-1' },
+                    { title: 'title-2', description: 'description-2' },
+                    { title: 'title-3', description: 'description-3' },
+                    { title: 'title-4', description: 'description-4' }
+                ]
+            },
+        });
+
+        var example2 = new Vue({
+            el: '#example-2',
+            data: {
+                parentMessage: 'Parent',
+                items: [
+                    { message: 'Foo' },
+                    { message: 'Bar' }
+                ]
+            }
+        })
+
+        var example3 = new Vue({
+            el: '#example-3',
+            data: {
+                object: {
+                    a: 'a-value',
+                    b: 'b-value',
+                    c: 'c-value'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

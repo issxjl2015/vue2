@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3.2.1 指令注册</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>3.2.1 指令注册</h1>
+        <div v-if="isExist" v-my-directive="param"></div>
+    </div>
+
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        var comp = Vue.directive('my-directive', {
+            bind: function () {
+                console.log('bind', arguments);
+            },
+            update: function (newValue, oldValue) {
+                console.log('update', newValue, oldValue);
+            },
+            unbind: function () {
+                console.log('unbind', arguments);
+            }
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                param: 'first',
+                isExist: true
+            }
+        });
+    </script>
+</body>
+
+</html>

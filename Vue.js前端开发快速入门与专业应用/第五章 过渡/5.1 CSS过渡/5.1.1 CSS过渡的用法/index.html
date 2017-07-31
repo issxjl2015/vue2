@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>5.1.1 CSS过渡的用法</title>
+    <style>
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity .5s
+        }
+
+        .fade-enter,
+        .fade-leave-to
+        /* .fade-leave-active in below version 2.1.8 */
+
+        {
+            opacity: 0
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>5.1.1 CSS过渡的用法</h1>
+        <transition name="fade">
+            <div v-if="show">Vue</div>
+        </transition>
+    </div>
+
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                show: false,
+                isExist: true
+            }
+        });
+    </script>
+</body>
+
+</html>

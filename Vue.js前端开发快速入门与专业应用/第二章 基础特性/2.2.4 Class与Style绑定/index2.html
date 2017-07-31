@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2.2.4 Class与Style绑定</title>
+    <style>
+        .active {
+            color: #f39;
+        }
+
+        .unactive {
+            color: #333
+        }
+
+        .class-a {
+            margin-top: 20px;
+        }
+
+        .class-b {
+            color: #f39;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>2.2.4 Class与Style绑定</h1>
+        <h2>内联样式绑定</h2>
+
+        <div :style="alertStyle">对象语法</div>
+        <div :style="{fontSize: alertStyle.fontSize, color: 'red'}">对象语法</div>
+        <div :style="[styleObjectA,styleObjectB]">数组语法</div>
+
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                alertStyle: {
+                    color: 'red',
+                    fontSize: '20px'
+                },
+                styleObjectA: {
+                    color: 'red',
+                },
+                styleObjectB: {
+                    fontSize: '20px'
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

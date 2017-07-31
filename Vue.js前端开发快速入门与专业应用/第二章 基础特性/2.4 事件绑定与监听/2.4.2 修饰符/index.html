@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2.4.2 修饰符</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <h1>2.4.1 方法及内联语句处理器</h1>
+        <!-- 阻止单击事件冒泡 -->
+        <a v-on:click.stop="doThis">v-on:click.stop:阻止单击事件冒泡</a>
+        <!-- 提交事件不再重载页面 -->
+        <form v-on:submit.prevent="onSubmit">v-on:submit.prevent:提交事件不再重载页面</form>
+        <!-- 修饰符可以串联  -->
+        <a v-on:click.stop.prevent="doThat">v-on:click.stop.prevent：修饰符可以串联</a>
+        <!-- 只有修饰符 -->
+        <form v-on:submit.prevent>v-on:submit.prevent:只有修饰符</form>
+        <!-- 添加事件侦听器时使用事件捕获模式 -->
+        <div v-on:click.capture="doThis">v-on:click.capture：添加事件侦听器时使用事件捕获模式</div>
+        <!-- 只当事件在该元素本身（比如不是子元素）触发时触发回调 -->
+        <div v-on:click.self="doThat">v-on:click.self:只当事件在该元素本身（比如不是子元素）触发时触发回调</div>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello Vue.js'
+            },
+            methods: {
+                doThis(){console.log('doThis');},
+                onSubmit(){console.log('onSubmit')},
+                doThat(){console.log('doThat')},
+                saySelf(msg){
+                    alert(msg);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
