@@ -9,7 +9,9 @@
                 <input type="checkbox" @change="saveToStore" v-model="todo.done">
                 <label>{{index+1}}.{{todo.value}}</label>
                 <time>{{todo.created | date}}</time>
-                <button @click.prevent="delItem(todo)"><!--delItem--></button>
+                <button @click.prevent="delItem(todo)">
+                    <!--delItem-->
+                </button>
             </li>
         </ul>
     </div>
