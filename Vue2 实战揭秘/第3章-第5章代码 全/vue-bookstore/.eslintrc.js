@@ -28,6 +28,7 @@ module.exports = {
     // 忽略检验 函数括号前是否有空格
     'space-before-function-paren': 0,
     // 忽略缩进校验 
-    "indent": 0
+    "indent": 0,
+    'quotes': 0
   }
 }

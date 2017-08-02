@@ -19,10 +19,10 @@ const router = new VueRouter({
   base: __dirname,
   linkActiveClass: 'active',
   routes: [
-    { name: 'Home', path: '/', component: Home },
-    { name: 'Categories', path: '/categories', component: Category },
-    { name: 'ShoppingCart', path: '/shoppingCart', component: ShoppingCart },
-    { name: 'Me', path: '/me', component: Me }
+    { name: 'Home', path: './', component: Home },
+    { name: 'Categories', path: './categories', component: Category },
+    { name: 'ShoppingCart', path: './shoppingCart', component: ShoppingCart },
+    { name: 'Me', path: './me', component: Me }
   ]
 })
 
